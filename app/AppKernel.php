@@ -34,6 +34,7 @@ class AppKernel extends Kernel
 
             // Then add SonataAdminBundle
             new Sonata\AdminBundle\SonataAdminBundle(),
+            new Assignment\JamStorageBundle\AssignmentJamStorageBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

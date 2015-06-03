@@ -5,12 +5,12 @@ namespace Assignment\JamStorageBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * JamYear
+ * Year
  *
  * @ORM\Table()
  * @ORM\Entity
  */
-class JamYear
+class Year
 {
     /**
      * @var integer
@@ -42,7 +42,7 @@ class JamYear
      * Set name
      *
      * @param string $name
-     * @return JamYear
+     * @return Year
      */
     public function setName($name)
     {

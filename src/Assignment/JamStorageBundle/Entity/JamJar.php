@@ -5,12 +5,12 @@ namespace Assignment\JamStorageBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Jam
+ * JamJar
  *
  * @ORM\Table()
  * @ORM\Entity
  */
-class Jam
+class JamJar
 {
     /**
      * @var integer
@@ -34,7 +34,7 @@ class Jam
     private $type;
 
     /**
-     * @ORM\ManyToOne(targetEntity="JamYear", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="Year", cascade={"persist"})
      */
     private $year;
 
@@ -53,7 +53,7 @@ class Jam
      * Set comment
      *
      * @param string $comment
-     * @return Jam
+     * @return JamJar
      */
     public function setComment($comment)
     {

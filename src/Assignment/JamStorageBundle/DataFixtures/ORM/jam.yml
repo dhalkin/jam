@@ -3,8 +3,8 @@ Assignment\JamStorageBundle\Entity\JamType:
         name (unique): <jamName()>
 
 Assignment\JamStorageBundle\Entity\Year:
-    year{1..3}:
-        name (unique): <numberBetween(2010, 2014)>
+    year{1..4}:
+        name (unique): <numberBetween(2010, 2013)>
 
 Assignment\JamStorageBundle\Entity\JamJar:
     jam{1..20}:

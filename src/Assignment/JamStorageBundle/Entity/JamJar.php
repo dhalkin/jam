@@ -52,7 +52,7 @@ class JamJar
     /**
      * Set comment
      *
-     * @param string $comment
+     * @param  string $comment
      * @return JamJar
      */
     public function setComment($comment)

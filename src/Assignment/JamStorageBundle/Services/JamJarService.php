@@ -32,5 +32,4 @@ class JamJarService
 
         $this->entityManager->flush();
     }
-
 }

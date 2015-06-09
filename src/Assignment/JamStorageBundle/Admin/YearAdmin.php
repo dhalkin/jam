@@ -8,6 +8,10 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
+/**
+ * Class YearAdmin
+ * @package Assignment\JamStorageBundle\Admin
+ */
 class YearAdmin extends Admin
 {
     /**
@@ -17,8 +21,7 @@ class YearAdmin extends Admin
     {
         $datagridMapper
             ->add('id')
-            ->add('name')
-        ;
+            ->add('name');
     }
 
     /**
@@ -29,14 +32,17 @@ class YearAdmin extends Admin
         $listMapper
             ->add('id')
             ->add('name')
-            ->add('_action', 'actions', array(
-                'actions' => array(
-                    'show' => array(),
-                    'edit' => array(),
-                    'delete' => array(),
+            ->add(
+                '_action',
+                'actions',
+                array(
+                    'actions' => array(
+                        'show' => array(),
+                        'edit' => array(),
+                        'delete' => array(),
+                    )
                 )
-            ))
-        ;
+            );
     }
 
     /**
@@ -46,8 +52,7 @@ class YearAdmin extends Admin
     {
         $formMapper
             ->add('id')
-            ->add('name')
-        ;
+            ->add('name');
     }
 
     /**
@@ -57,7 +62,6 @@ class YearAdmin extends Admin
     {
         $showMapper
             ->add('id')
-            ->add('name')
-        ;
+            ->add('name');
     }
 }

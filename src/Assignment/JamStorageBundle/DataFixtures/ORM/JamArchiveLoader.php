@@ -26,5 +26,4 @@ class JamStorageLoader extends DataFixtureLoader
 
         return $names[array_rand($names)];
     }
-
 }

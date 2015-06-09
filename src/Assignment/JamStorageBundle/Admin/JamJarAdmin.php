@@ -9,8 +9,17 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 use Assignment\JamStorageBundle\Services\JamJarService;
 
+/**
+ * Class JamJarAdmin
+ * @package Assignment\JamStorageBundle\Admin
+ */
 class JamJarAdmin extends Admin
 {
+
+    /**
+     * @var JamJarService
+     */
+    private $jamJarService;
 
     /**
      * @param JamJarService $jamJarService

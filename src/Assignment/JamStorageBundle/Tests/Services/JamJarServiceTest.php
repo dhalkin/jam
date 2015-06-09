@@ -8,7 +8,6 @@ use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
 use Assignment\JamStorageBundle\Entity\JamJar;
 
-
 /**
  * Class JamJarServiceTest
  *
@@ -33,7 +32,7 @@ class JamJarServiceTest extends WebTestCase
     private $jamJarRepository;
 
     /**
-     * @var currentCount
+     * @var integer currentCount
      */
     private $currentCount;
 
@@ -59,6 +58,7 @@ class JamJarServiceTest extends WebTestCase
 
     /**
      * @dataProvider successProvider
+     * @param $amount
      */
     public function testCreateAdditionalSuccess($amount)
     {
@@ -82,6 +82,7 @@ class JamJarServiceTest extends WebTestCase
 
     /**
      * @dataProvider failProvider
+     * @param $amount
      */
     public function testCloneJamsFail($amount)
     {

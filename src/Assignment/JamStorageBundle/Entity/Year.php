@@ -41,7 +41,7 @@ class Year
     /**
      * Set name
      *
-     * @param string $name
+     * @param  string $name
      * @return Year
      */
     public function setName($name)

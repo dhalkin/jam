@@ -41,7 +41,7 @@ class JamType
     /**
      * Set name
      *
-     * @param string $name
+     * @param  string $name
      * @return JamType
      */
     public function setName($name)

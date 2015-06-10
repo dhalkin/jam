@@ -18,8 +18,8 @@ class JamJarServiceTest extends \PHPUnit_Framework_TestCase
     {
         $this->entityManagerMock =
             $this->getMockBuilder('\Doctrine\ORM\EntityManager')
-            ->disableOriginalConstructor()
-            ->getMock();
+                ->disableOriginalConstructor()
+                ->getMock();
     }
 
 

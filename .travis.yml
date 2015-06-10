@@ -42,4 +42,4 @@ before_script:
 
 # configure notifications (email, IRC, campfire etc)
 notifications:
-  irc: "email.d.halkin@gmail.com"
+  email: "d.halkin@gmail.com"

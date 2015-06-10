@@ -1,5 +1,7 @@
 <?php
 
+//@todo how to validate not mapped fields
+
 namespace Assignment\JamStorageBundle\Admin;
 
 use Sonata\AdminBundle\Admin\Admin;

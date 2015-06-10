@@ -1,116 +1,41 @@
 <?php
 
 namespace Assignment\JamStorageBundle\Tests\Services;
-
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Assignment\JamStorageBundle\Services\JamJarService;
-use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\EntityRepository;
-use Assignment\JamStorageBundle\Entity\JamJar;
 
 /**
  * Class JamJarServiceTest
  *
  * @group unit
  */
-class JamJarServiceTest extends WebTestCase
+class JamJarServiceTest extends \PHPUnit_Framework_TestCase
 {
+    const TEST_COUNT = 5;
 
-    /**
-     * @var EntityManager
-     */
-    private $entityManager;
-
-    /**
-     * @var JamJarService
-     */
-    private $jamJarService;
-
-    /**
-     * @var EntityRepository
-     */
-    private $jamJarRepository;
-
-    /**
-     * @var integer currentCount
-     */
-    private $currentCount;
+    private $entityManagerMock;
 
     public function setUp()
     {
-        $client = self::createClient();
-        $container = $client->getContainer();
-
-        $this->jamJarService = $container->get('jam_jar');
-        $this->entityManager = $container->get('doctrine')->getManager();
-        $this->jamJarRepository = $this->entityManager->getRepository('AssignmentJamStorageBundle:JamJar');
-        $this->entityManager->beginTransaction();
-        $this->currentCount = count($this->jamJarRepository->findAll());
-    }
-
-    public function successProvider()
-    {
-        return [
-            [1],
-            [2]
-        ];
-    }
-
-    /**
-     * @dataProvider successProvider
-     * @param $amount
-     */
-    public function testCreateAdditionalSuccess($amount)
-    {
-        $this->jamJarService->createAdditional($this->createNewJamJar(), $amount);
-
-        $this->assertEquals(
-            $this->currentCount + $amount,
-            count($this->jamJarRepository->findAll())
-        );
-    }
-
-    public function failProvider()
-    {
-        return [
-            [-1],
-            [null],
-            [''],
-            [0]
-        ];
-    }
-
-    /**
-     * @dataProvider failProvider
-     * @param $amount
-     */
-    public function testCloneJamsFail($amount)
-    {
-
-        $this->jamJarService->createAdditional($this->createNewJamJar(), $amount);
-
-        $this->assertEquals(
-            $this->currentCount,
-            count($this->jamJarRepository->findAll())
-        );
+        $this->entityManagerMock =
+            $this->getMockBuilder('\Doctrine\ORM\EntityManager')
+            ->disableOriginalConstructor()
+            ->getMock();
     }
 
 
-    public function createNewJamJar()
+    public function testCreateAdditional()
     {
-        $jamJar = new JamJar();
-        $jamType = $this->entityManager->getRepository('AssignmentJamStorageBundle:JamType')->findOneByName('Apricot');
-        $year = $this->entityManager->getRepository('AssignmentJamStorageBundle:Year')->findOneByName('2013');
+        $jamJar = $this->getMock('\Assignment\JamStorageBundle\Entity\JamJar');
+        $this->entityManagerMock->expects($this->exactly(self::TEST_COUNT))
+            ->method('persist')
+            ->with($this->equalTo($jamJar))
+            ->will($this->returnValue(true));
 
-        $jamJar->setType($jamType);
-        $jamJar->setYear($year);
-        $jamJar->setComment('test comment');
+        $this->entityManagerMock->expects($this->once())
+            ->method('flush')
+            ->will($this->returnValue(true));
 
-        return $jamJar;
-    }
-
-    public function tearDown()
-    {
-        $this->entityManager->rollback();
+        $jamJarService = new JamJarService($this->entityManagerMock);
+        $jamJarService->createAdditional($jamJar, self::TEST_COUNT);
     }
 }

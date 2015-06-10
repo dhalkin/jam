@@ -1,6 +1,7 @@
 <?php
 
 namespace Assignment\JamStorageBundle\Tests\Services;
+
 use Assignment\JamStorageBundle\Services\JamJarService;
 
 /**
@@ -18,8 +19,8 @@ class JamJarServiceTest extends \PHPUnit_Framework_TestCase
     {
         $this->entityManagerMock =
             $this->getMockBuilder('\Doctrine\ORM\EntityManager')
-                ->disableOriginalConstructor()
-                ->getMock();
+            ->disableOriginalConstructor()
+            ->getMock();
     }
 
 

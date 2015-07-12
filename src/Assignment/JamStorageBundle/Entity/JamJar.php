@@ -89,7 +89,7 @@ class JamJar
     }
 
     /**
-     * @return mixed
+     * @return mixed // todo: write real types in docstrings
      */
     public function getYear()
     {

@@ -29,6 +29,8 @@ class JamJarServiceTest extends \PHPUnit_Framework_TestCase
         $jamJar = $this->getMock('\Assignment\JamStorageBundle\Entity\JamJar');
         $this->entityManagerMock->expects($this->exactly(self::TEST_COUNT))
             ->method('persist')
+            // todo: equalTo doesn't give you garantee about real cloning.
+            // e.g. you can pass same object here w/o any errors see service class
             ->with($this->equalTo($jamJar))
             ->will($this->returnValue(true));
 

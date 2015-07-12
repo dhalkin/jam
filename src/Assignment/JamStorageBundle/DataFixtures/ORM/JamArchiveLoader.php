@@ -20,6 +20,7 @@ class JamStorageLoader extends DataFixtureLoader
 
     public function jamName()
     {
+        // todo: it's better to use random element right in yml file, no need to create custom functions
         $names = array(
             'Apricot', 'Raspberries', 'Cherry-plum'
         );

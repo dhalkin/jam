@@ -11,3 +11,4 @@ Assignment\JamStorageBundle\Entity\JamJar:
         type: @type*
         year: @year*
         comment: 80%? <randomElement(['grandma is on the fire', 'lovely', 'hey.. hands off', 'no eat at night'])>
+        # nice names :)
